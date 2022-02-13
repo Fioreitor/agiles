@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Grupo I - Pagina xhtml</title>
+        <style>
+            body
+            {
+                background:#FDFEE0;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1 align="center" ><font face="Cooper Black" 
+                       size="25" color ="purple">DEPORTES EXTREMOS</font></h1>
+        <p><h:graphicImage value="deportes-extremos-800x400.jpg" style="margin-left: 400px; " width="500px" height="400px"></h:graphicImage></p>
+        <h3>Si eres de los aventados que no temen a las alturas ni a exponerse 
+            a sufrir lesiones graves, te gustarán todos estos deportes extremos. 
+            La adrenalina que se siente al practicarlos es una experiencia única,
+            de hecho es la droga más potente que el cuerpo segrega de manera 
+            natural cuando te encuentras en peligro o en estado de alerta.<br></br>
+            En general, los deportes extremos se caracterizan por:
+            <ul style="list-style-type: square;">
+                <li> Producir nuevos retos constantemente.</li>
+                <li>Requieren un compromiso significativo.</li>
+                <li>Producen sensación de riesgo y adrenalina.</li>
+                <li>Carecen de reglas estáticas.</li>
+                <li>Son un camino para la autorrealización.</li>
+                <li>Son un sinónimo de aventura.</li>
+                <li>Suelen practicarse al aire libre, en contacto con la naturaleza.</li>
+                <li>Ayudan a mermar el estrés.</li>
+                <li>Requieren constante práctica y de un buen estado físico.</li>
+                <li>Exigen utilizar ciertos elementos de seguridad, como casco, rodilleras, 
+                 coderas, entre otros.</li></ul> 
+        Aquí te dejamos los 10 deportes más extremos del mundo.</h3> 
+        
+        <h:dataTable value="#{tablaDeportes.listaDeportes}" 
+                     var="datos" border="4"  style="margin-left:400px;background:azure;width:500px;text-align:center;">
+                        <h:column>
+                            <f:facet name="header" >Rango</f:facet>
+                            #{datos.rango}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header" >Deportes</f:facet>
+                            #{datos.deporte}
+                        </h:column>
+        </h:dataTable>
+        
+        
+        <h3 align="center">¿Deseas participar del décimo torneo de surf?<br></br>
+                Llena el siguiente formulario e Inscribete</h3>
+        <h:panelGrid  columns="2" border="5" bgcolor="#F5DCF9" style="margin-left:400px;">
+                
+                <p:outputLabel id="LblNombres">NOMBRES:</p:outputLabel>
+                <p:inputText id="TxtNombres" required="true"></p:inputText>
+                
+                <p:outputLabel id="LblApellidos">APELLIDOS: </p:outputLabel>
+                <p:inputText id="TxtApellidos" required="true"></p:inputText>
+                
+                <p:outputLabel id="LblEdad" >EDAD: </p:outputLabel>
+                <p:spinner id="SpnEdad" required="true" min="18" max="35"/>
+                
+                <p:outputLabel id="LblSexo">SEXO</p:outputLabel>
+                <h:selectOneMenu id="CboSexo" >
+                    <f:selectItem itemValue="F" itemLabel="Fememnino" />
+                    <f:selectItem itemValue="M" itemLabel="Masculino" />
+                </h:selectOneMenu>
+                
+                <p:outputLabel id="LblCiudad" >CIUDAD PERTENECIENTE: </p:outputLabel>
+                <h:selectOneMenu id="CboCiudad">
+                    <f:selectItem itemLabel="Guayaquil" itemValue="Gye"/>
+                    <f:selectItem itemLabel="Quito" itemValue="Uio"/>
+                    <f:selectItem itemLabel="Cuenca" itemValue="Cue"/>
+                </h:selectOneMenu>
+                
+                <p:outputLabel>FECHA DE INSCRIPCION</p:outputLabel> 
+                <p:inputText id="TxtFecha" required="true">
+                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                </p:inputText>
+                                                
+            </h:panelGrid>
+        <br></br>
+        <h:commandButton style="margin-left:600px;" value="GUARDAR" id="btnGuardar" ></h:commandButton>
+        <h:messages  style="color:#cc0000;text-align:center;"/>
+        <br></br>   
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+         </h:form>
+    </h:body>
+</html>
+
